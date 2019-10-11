@@ -21,5 +21,13 @@ public class SceneLoader : MonoBehaviour
         Application.Quit();
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            LoadNextScene();
+        }
+    }
+
 
 }

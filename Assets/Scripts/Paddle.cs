@@ -23,7 +23,7 @@ public class Paddle : MonoBehaviour
         MoveWithMouse();
     }
 
-    public void MoveWithMouse()
+    private void MoveWithMouse()
     {
         mouseXPosInUnit = Input.mousePosition.x / Screen.width * screenWidthInUnit;
         transform.position = new Vector2(Mathf.Clamp(mouseXPosInUnit, minX, maxX), transform.position.y);
