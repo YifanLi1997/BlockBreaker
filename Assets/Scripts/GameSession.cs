@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class GameStatus : MonoBehaviour
+public class GameSession : MonoBehaviour
 {
     // config paras
     [Range(0.1f, 10f)] [SerializeField] float gameSpeed = 1f;
@@ -15,8 +15,8 @@ public class GameStatus : MonoBehaviour
 
     private void Awake()
     {
-        int gameStatusCount = FindObjectsOfType<GameStatus>().Length;
-        if (gameStatusCount > 1)
+        int gameSessionCount = FindObjectsOfType<GameSession>().Length;
+        if (gameSessionCount > 1)
         {
             gameObject.SetActive(false);
             Destroy(gameObject);
