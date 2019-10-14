@@ -199,6 +199,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 904782322283647470, guid: deb1f128a8ac54f4281519d64e114047,
+        type: 3}
+      propertyPath: isAutoPlay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deb1f128a8ac54f4281519d64e114047, type: 3}
 --- !u!1001 &230829730
@@ -388,6 +393,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1823192295}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1335677787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1038103826875264346, guid: 8c65baa8dfd9a4fec8d00a89f737aa5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1823192295}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335677786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd348b563080f43e8aba0f570c0b5ee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &1335677792
 AudioSource:
   m_ObjectHideFlags: 0
@@ -496,6 +513,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paddle
       objectReference: {fileID: 0}
+    - target: {fileID: 7481475245521158273, guid: 1cdb5e7c5f9f049ad8cc3f1c9d3b0136,
+        type: 3}
+      propertyPath: ball
+      value: 
+      objectReference: {fileID: 1335677787}
     - target: {fileID: 7481475245521158279, guid: 1cdb5e7c5f9f049ad8cc3f1c9d3b0136,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -625,21 +647,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 492376892345707127, guid: e31178ea9c384464bb978f332f3ab873,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 492376892345707127, guid: e31178ea9c384464bb978f332f3ab873,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 492376892345707127, guid: e31178ea9c384464bb978f332f3ab873,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e31178ea9c384464bb978f332f3ab873, type: 3}
