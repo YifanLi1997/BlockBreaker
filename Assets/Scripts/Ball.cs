@@ -7,7 +7,6 @@ public class Ball : MonoBehaviour
     [SerializeField] float xPush = 2f;
     [SerializeField] float yPush = 15f;
     [SerializeField] AudioClip[] collisionSounds;
-    [SerializeField] float randomFactor = 10f;
 
     // state
     Vector3 ballToPaddleVector;
@@ -60,7 +59,6 @@ public class Ball : MonoBehaviour
         {
             AudioClip audioClip = collisionSounds[UnityEngine.Random.Range(0, collisionSounds.Length)];
             myAudioSource.PlayOneShot(audioClip);
-            //myRigidbody2D.velocity += new Vector2(Random.Range(0f, randomFactor), Random.Range(0f, randomFactor));
         }
     }
 }

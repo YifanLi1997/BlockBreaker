@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField] GameObject levelUp;
+
     // params
     [SerializeField] int breakableBlocks;  // for debugging purpose
 
@@ -30,7 +32,15 @@ public class LevelManager : MonoBehaviour
 
         if (breakableBlocks <= 0)
         {
-            sceneLoader.LoadNextScene();
+            StartCoroutine(WaitAndLoad());
         }
+    }
+
+    IEnumerator WaitAndLoad()
+    {
+        levelUp.SetActive(true);
+        GameObject.Find("Play Area").SetActive(false);
+        yield return new WaitForSeconds(0.8f);
+        sceneLoader.LoadNextScene();
     }
 }

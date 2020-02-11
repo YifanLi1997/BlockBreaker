@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+
 
 public class GameSession : MonoBehaviour
 {
     // config paras
     [Range(0.1f, 10f)] [SerializeField] float gameSpeed = 1f;
-    [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] int scorePerBlockDestroyed = 10;
     [SerializeField] bool isAutoPlay;
 
@@ -29,22 +28,23 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        scoreText.text = currentScore.ToString();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Time.timeScale = gameSpeed;
     }
 
+    public int GetCurrentScore()
+    {
+        return currentScore;
+    }
+
     public void AddToScore()
     {
         currentScore += scorePerBlockDestroyed;
-        scoreText.text = currentScore.ToString();
     }
 
     public void ResetGame()
