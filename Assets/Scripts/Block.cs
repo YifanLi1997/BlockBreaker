@@ -10,7 +10,7 @@ public class Block : MonoBehaviour
     [SerializeField] Sprite[] hitSprites;
 
     [Header("Bonus prefabs")]
-    [SerializeField] Ball ballPrefab;
+    [SerializeField] GameObject ballPrefab;
 
     // state vars
     int hitTimes = 0;
@@ -60,13 +60,19 @@ public class Block : MonoBehaviour
     private void TriggerSecondBall()
     {
         secondBallRate = UnityEngine.Random.Range(0f, 1f) ;
-        if (secondBallRate <= 0.1)
+        if (secondBallRate <= 0.9)
         {
-            var ball = Instantiate(ballPrefab, transform.position, transform.rotation);
-            ball.SetStart(true);
-            var rig2D = ball.GetComponent<Rigidbody2D>();
-            rig2D.velocity = new Vector2(0, -15f);
+            InstantiateAndDestroyBall();
         }
+    }
+
+    private void InstantiateAndDestroyBall()
+    {
+        GameObject ball = Instantiate(ballPrefab, transform.position, transform.rotation) as GameObject;
+        ball.GetComponent<Ball>().SetStart(true);
+        ball.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -15f);
+        // The disappearing logic is contradictory with lose logic. Gonna give it up for now
+        //Destroy(ball, 0.5f);
     }
 
     private void TriggerSparklesVFX()

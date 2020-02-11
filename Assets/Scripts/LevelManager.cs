@@ -41,7 +41,7 @@ public class LevelManager : MonoBehaviour
         levelUp.SetActive(true);
         foreach (var ball in FindObjectsOfType<Ball>())
         {
-            Destroy(ball);
+            Destroy(ball.gameObject);
         }
         yield return new WaitForSeconds(0.8f);
         sceneLoader.LoadNextScene();
