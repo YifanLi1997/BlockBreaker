@@ -9,8 +9,12 @@ public class Block : MonoBehaviour
     [SerializeField] GameObject sparklesVFX;
     [SerializeField] Sprite[] hitSprites;
 
+    [Header("Bonus prefabs")]
+    [SerializeField] Ball ballPrefab;
+
     // state vars
     int hitTimes = 0;
+    float secondBallRate;
 
     //cached references
     LevelManager levelManager;
@@ -24,7 +28,6 @@ public class Block : MonoBehaviour
             levelManager.CountBreakableBlocks();
         }
     }
-
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -44,12 +47,25 @@ public class Block : MonoBehaviour
         {
             Destroy(gameObject);
 
+            TriggerSecondBall();
             TriggerSparklesVFX();
             levelManager.BreakOneBlock();
         }
         else
         {
             GetComponent<SpriteRenderer>().sprite = hitSprites[hitTimes];
+        }
+    }
+
+    private void TriggerSecondBall()
+    {
+        secondBallRate = UnityEngine.Random.Range(0f, 1f) ;
+        if (secondBallRate <= 0.1)
+        {
+            var ball = Instantiate(ballPrefab, transform.position, transform.rotation);
+            ball.SetStart(true);
+            var rig2D = ball.GetComponent<Rigidbody2D>();
+            rig2D.velocity = new Vector2(0, -15f);
         }
     }
 

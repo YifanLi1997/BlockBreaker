@@ -39,7 +39,10 @@ public class LevelManager : MonoBehaviour
     IEnumerator WaitAndLoad()
     {
         levelUp.SetActive(true);
-        GameObject.Find("Play Area").SetActive(false);
+        foreach (var ball in FindObjectsOfType<Ball>())
+        {
+            Destroy(ball);
+        }
         yield return new WaitForSeconds(0.8f);
         sceneLoader.LoadNextScene();
     }

@@ -7,10 +7,16 @@ public class LoseTrigger : MonoBehaviour
 {
     [SerializeField] GameObject fail;
 
+    [Header("For Visualization")]
+    [SerializeField] int numberOfBalls = 0;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        StartCoroutine(WaitAndLoad());
-
+        DestroyOneBall(collision);
+        if (numberOfBalls <= 0)
+        {
+            StartCoroutine(WaitAndLoad());
+        }
     }
 
     IEnumerator WaitAndLoad()
@@ -18,5 +24,16 @@ public class LoseTrigger : MonoBehaviour
         fail.SetActive(true);
         yield return new WaitForSeconds(0.8f);
         SceneManager.LoadScene("Game Over");
+    }
+
+    public void AddOneBall()
+    {
+        numberOfBalls++;
+    }
+
+    public void DestroyOneBall(Collider2D ball)
+    {
+        Destroy(ball.gameObject);
+        numberOfBalls--;
     }
 }

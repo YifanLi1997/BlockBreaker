@@ -128,4 +128,4 @@ MonoBehaviour:
   screenWidthInUnit: 16
   minX: 1
   maxX: 15
-  ball: {fileID: 0}
+  ball: {fileID: 8437573028902548299, guid: 8c65baa8dfd9a4fec8d00a89f737aa5b, type: 3}

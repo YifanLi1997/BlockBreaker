@@ -15,14 +15,20 @@ public class Ball : MonoBehaviour
     // cached components
     AudioSource myAudioSource;
     Rigidbody2D myRigidbody2D;
+
+    LoseTrigger loseTrigger;
     
 
     // Start is called before the first frame update
     void Start()
     {
         ballToPaddleVector = transform.position - paddle.transform.position;
+
         myAudioSource = GetComponent<AudioSource>();
         myRigidbody2D = GetComponent<Rigidbody2D>();
+
+        loseTrigger = FindObjectOfType<LoseTrigger>();
+        loseTrigger.AddOneBall();
     }
 
 
@@ -60,5 +66,10 @@ public class Ball : MonoBehaviour
             AudioClip audioClip = collisionSounds[UnityEngine.Random.Range(0, collisionSounds.Length)];
             myAudioSource.PlayOneShot(audioClip);
         }
+    }
+
+    public void SetStart(bool start)
+    {
+        hasStarted = start;
     }
 }
