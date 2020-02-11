@@ -12,6 +12,7 @@ public class Paddle : MonoBehaviour
 
     // state vars
     float mouseXPosInUnit;
+    bool hasStarted = false;
 
     // cached references
     GameSession myGameSession;
@@ -25,13 +26,25 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovePaddle();
+        if (hasStarted)
+        {
+            MovePaddle();
+        }
+        else
+        {
+            CheckMouseClick();
+        }
+        
     }
 
     private void MovePaddle()
     {
         if (myGameSession.IsAutoPlayEnabled())
         {
+            if (!ball)
+            {
+                return;
+            }
             mouseXPosInUnit = ball.transform.position.x;
         }
         else
@@ -40,5 +53,13 @@ public class Paddle : MonoBehaviour
         }
 
         transform.position = new Vector2(Mathf.Clamp(mouseXPosInUnit, minX, maxX), transform.position.y);
+    }
+
+    private void CheckMouseClick()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            hasStarted = true;
+        }
     }
 }

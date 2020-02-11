@@ -22,7 +22,7 @@ public class LoseTrigger : MonoBehaviour
     IEnumerator WaitAndLoad()
     {
         fail.SetActive(true);
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Game Over");
     }
 

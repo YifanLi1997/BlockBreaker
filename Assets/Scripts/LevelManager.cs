@@ -43,7 +43,7 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(ball.gameObject);
         }
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1f);
         sceneLoader.LoadNextScene();
     }
 }

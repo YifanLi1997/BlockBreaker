@@ -60,7 +60,7 @@ public class Block : MonoBehaviour
     private void TriggerSecondBall()
     {
         secondBallRate = UnityEngine.Random.Range(0f, 1f) ;
-        if (secondBallRate <= 0.9)
+        if (secondBallRate <= 0.05)
         {
             InstantiateAndDestroyBall();
         }
@@ -70,7 +70,7 @@ public class Block : MonoBehaviour
     {
         GameObject ball = Instantiate(ballPrefab, transform.position, transform.rotation) as GameObject;
         ball.GetComponent<Ball>().SetStart(true);
-        ball.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -15f);
+        ball.GetComponent<Rigidbody2D>().velocity = new Vector2(UnityEngine.Random.Range(-15f,15f), -15f);
         // The disappearing logic is contradictory with lose logic. Gonna give it up for now
         //Destroy(ball, 0.5f);
     }
